@@ -18,7 +18,7 @@ const User = mongoose.model('User', userSchema);
 
 
 async function fetchInformation(){
-  const users = await User.find({isMarried: true});
+  const users = await User.find({isMarried: false}).select('name salary');
   console.log(users);
 }
 
