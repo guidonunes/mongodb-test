@@ -16,16 +16,24 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-async function storeInformation(){
-  const user = new User({
-    name: 'John Doe',
-    age: 25,
-    isMarried: false,
-    salary: 50000,
-    gender: 'Male'
-  });
-  await user.save();
-  console.log(user);
+
+async function fetchInformation(){
+  const users = await User.find({isMarried: true});
+  console.log(users);
 }
 
-storeInformation();
+fetchInformation();
+
+// async function storeInformation(){
+//   const user = new User({
+//     name: 'John Doe',
+//     age: 25,
+//     isMarried: false,
+//     salary: 50000,
+//     gender: 'Male'
+//   });
+//   await user.save();
+//   console.log(user);
+// }
+
+// storeInformation();
