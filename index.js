@@ -18,8 +18,10 @@ const User = mongoose.model('User', userSchema);
 
 
 async function fetchInformation(){
-  const users = await User.find().and([{isMarried: false}]).select('name age').sort('age');
-  console.log(users);
+  const user = await User.findById('67291bd73167b4d71884ee02');
+  user.isMarried = false;
+  await user.save();
+  console.log(user);
 }
 
 fetchInformation();
