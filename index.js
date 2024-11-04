@@ -18,9 +18,7 @@ const User = mongoose.model('User', userSchema);
 
 
 async function fetchInformation(){
-  const user = await User.findByIdAndUpdate('67291bd73167b4d71884ee0b', {isMarried: false, age: 45}, {new: true, runValidators: true});
-  await user.save();
-  console.log(user);
+  await User.deleteOne({name: 'Alice Smith'});
 }
 
 fetchInformation();
