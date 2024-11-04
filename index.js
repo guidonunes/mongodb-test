@@ -18,7 +18,7 @@ const User = mongoose.model('User', userSchema);
 
 
 async function fetchInformation(){
-  const users = await User.find({});
+  const users = await User.find().and([{isMarried: true}, {age:30}]);
   console.log(users);
 }
 
