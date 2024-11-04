@@ -18,22 +18,32 @@ const User = mongoose.model('User', userSchema);
 
 
 async function fetchInformation(){
-  const users = await User.find({age: {$gt: 30}});
+  const users = await User.find({});
   console.log(users);
 }
 
 fetchInformation();
 
-// async function storeInformation(){
-//   const user = new User({
-//     name: 'John Doe',
-//     age: 25,
-//     isMarried: false,
-//     salary: 50000,
-//     gender: 'Male'
-//   });
+// async function storeInformation(userData) {
+//   const user = new User(userData);
 //   await user.save();
 //   console.log(user);
 // }
 
-// storeInformation();
+// // Define additional users
+// const usersData = [
+//   { name: 'Alice Smith', age: 32, isMarried: true, salary: 60000, gender: 'Female' },
+//   { name: 'Bob Johnson', age: 45, isMarried: true, salary: 80000, gender: 'Male' },
+//   { name: 'Carol White', age: 28, isMarried: false, salary: 55000, gender: 'Female' },
+//   { name: 'David Brown', age: 39, isMarried: true, salary: 70000, gender: 'Male' },
+//   { name: 'Eva Green', age: 24, isMarried: false, salary: 48000, gender: 'Female' }
+// ];
+
+// // Save all users to the database
+// async function saveUsers() {
+//   for (const userData of usersData) {
+//     await storeInformation(userData);
+//   }
+// }
+
+// saveUsers();
